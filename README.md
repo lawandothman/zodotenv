@@ -8,6 +8,7 @@ Validate and parse your environment variables like a responsible adult
 
 ```bash
 npm i -S zodenv
+
 pnpm add zodenv
 ```
 

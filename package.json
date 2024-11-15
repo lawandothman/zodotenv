@@ -1,0 +1,51 @@
+{
+  "name": "zodenv",
+  "description": "Validate and parse your environment variables like a responsible adult",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "David Dios",
+    "email": "dios.david@thedevcore.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dios-david/zodenv.git"
+  },
+  "main": "./dist/zodenv.cjs",
+  "module": "./dist/zodenv.mjs",
+  "types": "./dist/zodenv.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/zodenv.d.cts",
+      "default": "./dist/zodenv.cjs"
+    },
+    "import": {
+      "types": "./dist/zodenv.d.mts",
+      "default": "./dist/zodenv.mjs"
+    }
+  },
+  "scripts": {
+    "----- BUILD ": "-----",
+    "build": "pkgroll",
+    "dev": "pnpm run --filter backend --parallel --reporter-hide-prefix /^dev/",
+    "dev:types": "tsc --noEmit --watch --preserveWatchOutput",
+    "dev:app": "tsx watch --clear-screen=false src/index.ts",
+    "----- TEST ": "-----",
+    "test": "NODE_ENV=test tsx --test src/**/*.spec.ts",
+    "test:dev": "NODE_ENV=test tsx --watch --test src/**/*.spec.ts",
+    "----- LINT/FMT ": "-----",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write"
+  },
+  "peerDependencies": {
+    "zod": "3.x"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.9.0",
+    "pkgroll": "^2.5.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "zod": "^3.23.8"
+  }
+}

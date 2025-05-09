@@ -1,4 +1,3 @@
-import assert from 'node:assert';
 import { ZodType } from 'zod';
 import type {
   EnvOptions,
@@ -8,6 +7,12 @@ import type {
   PathSplit,
   ZodotenvConfig,
 } from './types';
+
+function assert(condition: boolean, error?: Error): asserts condition {
+  if (!condition) {
+    throw error || new Error('Assertion failed');
+  }
+}
 
 export class ZodotenvError extends Error {
   constructor(message: string, cause?: Error) {
